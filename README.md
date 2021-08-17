@@ -3,12 +3,12 @@ Installing process based on: https://www.cs.rochester.edu/u/kautz/Installing-Pyt
 
 These instructions have been tested for:
 
-<br>
 <blockquote>
 OS : MacOS High Sierra 10.13.6 (17G14042)<br>
 GPU Driver: NVIDIA Web Driver 387.10.10.10.4.140<br>
 GPU CUDA Driver Version: 418.105<br>
 Xcode Version: 10.1 (10B61)<br>
+Python 3.7.11<br>
 </blockquote>
 <br>
 
@@ -20,12 +20,38 @@ Check that you are running Mac OS X High Sierra (10.13.6). If you have an older 
 Make developer acc at first, then go to https://developer.apple.com/download/all/ and download Xcode version 9.4. 
 <a href="https://download.developer.apple.com/Developer_Tools/Command_Line_Tools_macOS_10.13_for_Xcode_9.4/Command_Line_Tools_macOS_10.13_for_Xcode_9.4.dmg">( direct link )</a>
 <br><br>
+Install Xcode version 9.4.<br>
+<br>
+
+Then switch to Xcode version 9.4:<br>
+>sudo xcode-select --switch /Library/Developer/CommandLineTools
+<br>
+
+(Switch Xcode back to the version 10.0.0:<br>
+>sudo xcode-select --switch /Applications/Xcode.app/Contents/Developer
+<br>
+
+You can check current version of Xcode by:<br>
+>clang --version
+
+<br>
+Should be:<br>
+
+>
+>Apple LLVM version 9.1.0 (clang-902.0.39.2)<br>
+>Target: x86_64-apple-darwin17.7.0<br>
+>Thread model: posix<br>
+>InstalledDir: /Library/Developer/CommandLineTools/usr/bin
+>
+Don't think about 9.4 == 9.1. ( It's OK 8; )
+<br><br>
 
 **Step 3: Install NVIDIA Drivers**
 Install the <a href="https://images.nvidia.com/mac/pkg/387/WebDriver-387.10.10.10.40.140.pkg">NVIDIA Quadro and Geforce OS X Driver 387.10.10.10.40.140</a>
 
 Add to your .profile<br>
->nano ~/.bash_profile<br>
+>nano ~/.bash_profile
+<br>
 
 this two lines:<br>
 
@@ -48,7 +74,7 @@ Install to "/Developer/NVIDIA/CUDA-10.0"
 **Step 5: Install NVIDIA cuDNN 7.6.5<br>**
 Download installer zip file - <a href="https://developer.nvidia.com/compute/machine-learning/cudnn/secure/7.6.5.32/Production/10.0_20191031/cudnn-10.0-osx-x64-v7.6.5.32.tgz">cudnn-10.0-osx-x64-v7.6.5.32.tgz</a> (654,8 MB)<br>
 Unzip to "/usr/local/cuda/lib"<br>
-<br><br>
+<br>
 There are two directories with files:<br>
 
 >/include<br>
@@ -68,7 +94,18 @@ Then make a alias (symlink) of "libcuda.dylib" as name "libcuda.so.1"<br>
 >ln -s libcuda.dylib libcuda.so.1<br>
 <br>
 
+**Step 6: Install Conda<br>**
+Install <a href="https://www.anaconda.com/distribution/">Anaconda</a>. Create an environment named ptc that includes pip, activate it, and install libraries:
 
+>conda create --name ptc python=3.7<br>
+>conda activate ptc<br>
+>conda install numpy ninja pyyaml mkl mkl-include setuptools cmake cffi typing_extensions future six requests dataclasses intel-openmp<br>
+>conda install torchvision<br>
+>conda install pkg-config libuv<br>
+<br>
+
+
+**Step 7: Build Pytorch<br>**
 
 
 
