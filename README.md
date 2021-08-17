@@ -67,10 +67,12 @@ Install to "/Developer/NVIDIA/CUDA-10.0"
 <br><br>
 
 **Step 5: Install NVIDIA cuDNN 7.6.5<br>**
-Download installer zip file - <a href="https://developer.nvidia.com/compute/machine-learning/cudnn/secure/7.6.5.32/Production/10.0_20191031/cudnn-10.0-osx-x64-v7.6.5.32.tgz">cudnn-10.0-osx-x64-v7.6.5.32.tgz</a> (654,8 MB)<br>
-Unzip to "/usr/local/cuda/lib"<br>
+<a href="https://developer.nvidia.com/login">Joint to NVIDIA Developer Program.</a><br>
+And download installer zip file - <a href="https://developer.nvidia.com/compute/machine-learning/cudnn/secure/7.6.5.32/Production/10.0_20191031/cudnn-10.0-osx-x64-v7.6.5.32.tgz">cudnn-10.0-osx-x64-v7.6.5.32.tgz</a> (654,8 MB)<br>
 <br>
-There are two directories with files:<br>
+Then Unzip it to "/usr/local/cuda/lib"<br>
+<br>
+There will be two directories with files:<br>
 
 >/include<br>
 >cudnn.h<br>
@@ -83,14 +85,14 @@ and<br>
 >libcudnn_static.a<br>
 <br>
 
-Then make a alias (symlink) of "libcuda.dylib" as name "libcuda.so.1"<br>
+Make a alias (symlink) of "libcuda.dylib" as name "libcuda.so.1"<br>
 
 >cd /usr/local/cuda/lib/<br>
 >ln -s libcuda.dylib libcuda.so.1<br>
 <br>
 
 **Step 6: Install Conda<br>**
-Install <a href="https://www.anaconda.com/distribution/">Anaconda</a>. Create an environment named ptc that includes pip, activate it, and install libraries:
+Install <a href="https://www.anaconda.com/distribution/">Anaconda</a>. Create an environment named "ptc" that includes pip, activate it, and install libraries:
 
 >conda create --name ptc python=3.7<br>
 >conda activate ptc<br>
@@ -113,6 +115,10 @@ Finally you build:<br>
 >export CMAKE_PREFIX_PATH=${CONDA_PREFIX:-"$(dirname $(which conda))/../"}
 >MACOSX_DEPLOYMENT_TARGET=10.9 CC=clang CXX=clang++ python setup.py install
 <br><br>
+
+it will take some time...
+<br><br>
+
 Reboot and test that pytorch with CUDA is working:<br>
 
 **Step 8: Test Pytorch<br>**
@@ -132,19 +138,54 @@ You should see onу word "true"<br>
 >torch.cuda.device_count()
 >
 You should see onу dig "1"<br>
+
+>
+>from torch import cuda
+>
+>print('__CUDNN VERSION:', torch.backends.cudnn.version())
+>
+>print('__Number CUDA Devices:', torch.cuda.device_count())
+>
+>print('__CUDA Device Name:',torch.cuda.get_device_name(0))
+>
+>print('__CUDA Device Total Memory [GB]:',torch.cuda.get_device_properties(0).total_memory/1e9)
+>
+You should see:<br>
+>
+>__CUDNN VERSION: 7605
+>
+>__Number CUDA Devices: 1
+>
+>__CUDA Device Name: GeForce GT 750M
+>
+>__CUDA Device Total Memory [GB]: 2.147024896
+>
+>
+>
+<br>
+By my test CUDA provides about a 1.8X speedup over the cpu for Pytorch.
 <br><br>
 
-_By my test CUDA provides about a 1.8X speedup over the cpu for Pytorch._
-<br><br>
+You can easily save this installation just zipping two those dir:<br>
 
+<blockquote>
+/Users/<-USERNAME->/opt/anaconda3/envs/ptc/lib/python3.7/site-packages/torch
+</blockquote>
+and
+<br>
+<blockquote>
+/Users/<-USERNAME->/opt/anaconda3/envs/ptc/lib/python3.7/site-packages/torch-1.10.0a0+git30214ae-py3.7.egg-info
+</blockquote>
+(or similar)<br>
+
+And unzip it, and replace, if some pip or conda installer kill your installation to cpu version of Pytorch.<br>
+  
 ____________________________________________
-
-Switch Xcode back to the version 10.0.0:<br>
+Option: switch Xcode back to the version 10.0.0:<br>
 >sudo xcode-select --switch /Applications/Xcode.app/Contents/Developer
 <br>
-
-
-
+  
+<br>
 >Good look!<br>
 >2021.08.17<br>
 >silenzio
