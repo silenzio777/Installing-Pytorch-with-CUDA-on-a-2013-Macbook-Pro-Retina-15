@@ -122,8 +122,15 @@ it will take some time...
 After success build **reboot your Mac**<br>
 <br>
 **Step 8: Upgrade torchvision and torchsummary<br>**
+
+>
+>conda activate ptc
 >
 >pip install torchvision==0.10.0 --no-deps
+>
+>pip install --upgrade Pillow
+>
+>pip install pandas
 >
 >pip install torchsummary==1.5.1 --no-deps
 >
