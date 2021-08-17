@@ -128,9 +128,8 @@ After success build **reboot your Mac**<br>
 >pip install torchsummary==1.5.1 --no-deps
 >
 
-Reboot and test that pytorch with CUDA is working:<br>
-
 **Step 9: Test Pytorch<br>**
+Test that pytorch with CUDA is working:<br>
 
 >conda activate ptc
 >
