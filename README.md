@@ -27,10 +27,6 @@ Then switch to Xcode version 9.4:<br>
 >sudo xcode-select --switch /Library/Developer/CommandLineTools
 <br>
 
-(Switch Xcode back to the version 10.0.0:<br>
->sudo xcode-select --switch /Applications/Xcode.app/Contents/Developer
-<br>
-
 You can check current version of Xcode by:<br>
 >clang --version
 
@@ -56,8 +52,8 @@ Add to your .profile<br>
 this two lines:<br>
 
 <blockquote>export PATH=/Developer/NVIDIA/CUDA-10.0/bin${PATH:+:${PATH}}
-export DYLD_LIBRARY_PATH=/usr/local/cuda/lib:$DYLD_LIBRARY_PATH
-</blockquote>
+  export DYLD_LIBRARY_PATH=/usr/local/cuda/lib:$DYLD_LIBRARY_PATH
+  </blockquote>
 
 and **reboot your Mac**
 <br><br>
@@ -104,8 +100,45 @@ Install <a href="https://www.anaconda.com/distribution/">Anaconda</a>. Create an
 >conda install pkg-config libuv<br>
 <br>
 
-
 **Step 7: Build Pytorch<br>**
+Download Pytorch install:<br>
+>
+>conda activate ptc
+>git clone --recursive https://github.com/pytorch/pytorch
+<br><br>
+Finally you build:<br>
+
+>
+>cd pytorch
+>export CMAKE_PREFIX_PATH=${CONDA_PREFIX:-"$(dirname $(which conda))/../"}
+>MACOSX_DEPLOYMENT_TARGET=10.9 CC=clang CXX=clang++ python setup.py install
+<br><br>
+
+**Step 8: Test Pytorch<br>**
+Reboot and test that pytorch with CUDA is working:<br>
+
+>
+>conda activate ptc
+>python
+>import torch
+>torch.cuda.is_available()
+<br><br>
+
+You should see onу word "true"<br>
+<br><br>
+
+Switch Xcode back to the version 10.0.0:<br>
+>sudo xcode-select --switch /Applications/Xcode.app/Contents/Developer
+<br>
+
+_By my test CUDA provides about a 1.8X speedup over the cpu for Pytorch._
+<br><br>
+
+>Good look!
+>2021.08.17<br>
+>silenzio
+<br><br>
+
 
 
 
