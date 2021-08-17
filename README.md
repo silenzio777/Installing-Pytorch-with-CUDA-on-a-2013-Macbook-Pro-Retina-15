@@ -119,9 +119,18 @@ Finally you build:<br>
 it will take some time...
 <br><br>
 
+After success build **reboot your Mac**<br>
+<br>
+**Step 8: Upgrade torchvision and torchsummary<br>**
+>
+>pip install torchvision==0.10.0 --no-deps
+>
+>pip install torchsummary==1.5.1 --no-deps
+>
+
 Reboot and test that pytorch with CUDA is working:<br>
 
-**Step 8: Test Pytorch<br>**
+**Step 9: Test Pytorch<br>**
 
 >conda activate ptc
 >
