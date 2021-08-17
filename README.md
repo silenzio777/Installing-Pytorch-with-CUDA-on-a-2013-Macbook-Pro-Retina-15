@@ -18,13 +18,16 @@ Check that you are running Mac OS X High Sierra (10.13.6). If you have an older 
 
 **Step 2: Downgrade Xcode<br>**
 Make developer acc at first, then go to https://developer.apple.com/download/all/ and download Xcode version 9.4. 
-Direct link: https://download.developer.apple.com/Developer_Tools/Command_Line_Tools_macOS_10.13_for_Xcode_9.4/Command_Line_Tools_macOS_10.13_for_Xcode_9.4.dmg
+<a href="https://download.developer.apple.com/Developer_Tools/Command_Line_Tools_macOS_10.13_for_Xcode_9.4/Command_Line_Tools_macOS_10.13_for_Xcode_9.4.dmg">( direct link )</a>
 <br><br>
 
 **Step 3: Install NVIDIA Drivers**
 Install the <a href="https://images.nvidia.com/mac/pkg/387/WebDriver-387.10.10.10.40.140.pkg">NVIDIA Quadro and Geforce OS X Driver 387.10.10.10.40.140</a>
 
-Add to your .profile ( >_nano ~/.bash_profile_ ) two lines:
+Add to your .profile<br>
+>nano ~/.bash_profile<br>
+
+this two lines:<br>
 
 <blockquote>export PATH=/Developer/NVIDIA/CUDA-10.0/bin${PATH:+:${PATH}}
 export DYLD_LIBRARY_PATH=/usr/local/cuda/lib:$DYLD_LIBRARY_PATH
@@ -35,18 +38,35 @@ and **reboot your Mac**
 
 **Step 4: Download NVIDIA CUDA Toolkit 10.0 Archive<br>**
 
-Download installer zip file - <a href="https://developer.nvidia.com/cuda-10.0-download-archive?target_os=MacOSX&target_arch=x86_64&target_version=1013">NVIDIA CUDA Toolkit 10.0 </a>
+Download installer <a href="https://developer.nvidia.com/cuda-10.0-download-archive?target_os=MacOSX&target_arch=x86_64&target_version=1013">NVIDIA CUDA Toolkit 10.0 </a>(1,8 GB)<br>
 
-![DownloadCUDAToolkit_sm](https://user-images.githubusercontent.com/7931919/129792909-49316a74-eb5c-4da2-9821-14faa2295ccf.png)
-
+![DownloadCUDAToolkit_sm](https://user-images.githubusercontent.com/7931919/129793652-02818cad-e510-4b40-9bf4-536121342d58.png)
 
 Install to "/Developer/NVIDIA/CUDA-10.0"
-
+<br><br>
 
 **Step 5: Install NVIDIA cuDNN 7.6.5<br>**
-Download installer zip file - <a href="https://developer.nvidia.com/compute/machine-learning/cudnn/secure/7.6.5.32/Production/10.0_20191031/cudnn-10.0-osx-x64-v7.6.5.32.tgz">cudnn-10.0-osx-x64-v7.6.5.32.tgz</a>
-Unzip to "/usr/local/cuda/lib"
+Download installer zip file - <a href="https://developer.nvidia.com/compute/machine-learning/cudnn/secure/7.6.5.32/Production/10.0_20191031/cudnn-10.0-osx-x64-v7.6.5.32.tgz">cudnn-10.0-osx-x64-v7.6.5.32.tgz</a> (654,8 MB)<br>
+Unzip to "/usr/local/cuda/lib"<br>
+<br><br>
+There are two directories with files:<br>
 
+>/include<br>
+>cudnn.h<br>
+
+and<br>
+
+>/lib<br>
+>libcudnn.7.dylib<br>
+>libcudnn.dylib<br>
+>libcudnn_static.a<br>
+<br>
+
+Then make a alias (symlink) of "libcuda.dylib" as name "libcuda.so.1"<br>
+
+>cd /usr/local/cuda/lib/<br>
+>ln -s libcuda.dylib libcuda.so.1<br>
+<br>
 
 
 
