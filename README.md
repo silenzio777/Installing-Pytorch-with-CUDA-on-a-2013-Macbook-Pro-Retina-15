@@ -1,6 +1,7 @@
 # Installing-Pytorch-with-CUDA-on-a-2013-Macbook-Pro-Retina-15
 Installing process based on: https://www.cs.rochester.edu/u/kautz/Installing-Pytorch-Cuda-on-Macbook.html
-
+<br>Thanks to Henry Kautz!<br>
+________________________________________
 These instructions have been tested for:
 
 <blockquote>
@@ -22,16 +23,16 @@ Make developer acc at first, then go to https://developer.apple.com/download/all
 <br><br>
 Install Xcode version 9.4.<br>
 <br>
-
-Then switch to Xcode version 9.4:<br>
+Then switch to Xcode version 9.4:
+>
 >sudo xcode-select --switch /Library/Developer/CommandLineTools
 <br>
-
 You can check current version of Xcode by:<br>
->clang --version
 
+>
+>clang --version
 <br>
-Should be:<br>
+Should be:
 
 >
 >Apple LLVM version 9.1.0 (clang-902.0.39.2)<br>
@@ -48,11 +49,9 @@ Install the <a href="https://images.nvidia.com/mac/pkg/387/WebDriver-387.10.10.1
 Add to your .profile<br>
 >nano ~/.bash_profile
 <br>
-
 this two lines:<br>
-
-<blockquote>export PATH=/Developer/NVIDIA/CUDA-10.0/bin${PATH:+:${PATH}}
-  export DYLD_LIBRARY_PATH=/usr/local/cuda/lib:$DYLD_LIBRARY_PATH
+<blockquote>export PATH=/Developer/NVIDIA/CUDA-10.0/bin${PATH:+:${PATH}}<br>
+export DYLD_LIBRARY_PATH=/usr/local/cuda/lib:$DYLD_LIBRARY_PATH
   </blockquote>
 
 and **reboot your Mac**
@@ -61,9 +60,9 @@ and **reboot your Mac**
 **Step 4: Download NVIDIA CUDA Toolkit 10.0 Archive<br>**
 
 Download installer <a href="https://developer.nvidia.com/cuda-10.0-download-archive?target_os=MacOSX&target_arch=x86_64&target_version=1013">NVIDIA CUDA Toolkit 10.0 </a>(1,8 GB)<br>
-
-![DownloadCUDAToolkit_sm](https://user-images.githubusercontent.com/7931919/129793652-02818cad-e510-4b40-9bf4-536121342d58.png)
-
+<br>
+![DownloadCUDAToolkit_sm](https://user-images.githubusercontent.com/7931919/129793652-02818cad-e510-4b40-9bf4-536121342d58.png)<br>
+<br>
 Install to "/Developer/NVIDIA/CUDA-10.0"
 <br><br>
 
@@ -106,6 +105,7 @@ Download Pytorch install:<br>
 >conda activate ptc
 >git clone --recursive https://github.com/pytorch/pytorch
 <br><br>
+
 Finally you build:<br>
 
 >
@@ -113,28 +113,39 @@ Finally you build:<br>
 >export CMAKE_PREFIX_PATH=${CONDA_PREFIX:-"$(dirname $(which conda))/../"}
 >MACOSX_DEPLOYMENT_TARGET=10.9 CC=clang CXX=clang++ python setup.py install
 <br><br>
-
-**Step 8: Test Pytorch<br>**
 Reboot and test that pytorch with CUDA is working:<br>
 
->
+**Step 8: Test Pytorch<br>**
+
 >conda activate ptc
+>
 >python
+>
 >import torch
+>
+>
 >torch.cuda.is_available()
-<br><br>
 
 You should see onу word "true"<br>
+<br>
+>
+>torch.cuda.device_count()
+>
+You should see onу dig "1"<br>
 <br><br>
+
+_By my test CUDA provides about a 1.8X speedup over the cpu for Pytorch._
+<br><br>
+
+____________________________________________
 
 Switch Xcode back to the version 10.0.0:<br>
 >sudo xcode-select --switch /Applications/Xcode.app/Contents/Developer
 <br>
 
-_By my test CUDA provides about a 1.8X speedup over the cpu for Pytorch._
-<br><br>
 
->Good look!
+
+>Good look!<br>
 >2021.08.17<br>
 >silenzio
 <br><br>
