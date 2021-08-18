@@ -40,19 +40,23 @@ Should be:
 >Thread model: posix<br>
 >InstalledDir: /Library/Developer/CommandLineTools/usr/bin
 >
-Don't think about 9.4 == 9.1. ( It's OK 8; )
+Don't think about 9.4 != 9.1. It's OK 8;
 <br><br>
 
 **Step 3: Install NVIDIA Drivers**
 Install the <a href="https://images.nvidia.com/mac/pkg/387/WebDriver-387.10.10.10.40.140.pkg">NVIDIA Quadro and Geforce OS X Driver 387.10.10.10.40.140</a>
 
-Add to your .profile<br>
->nano ~/.bash_profile
+Add to your .profile
+```
+nano ~/.bash_profile
+```
 <br>
 this two lines:<br>
-<blockquote>export PATH=/Developer/NVIDIA/CUDA-10.0/bin${PATH:+:${PATH}}<br>
+
+```
+export PATH=/Developer/NVIDIA/CUDA-10.0/bin${PATH:+:${PATH}}
 export DYLD_LIBRARY_PATH=/usr/local/cuda/lib:$DYLD_LIBRARY_PATH
-  </blockquote>
+```
 
 and **reboot your Mac**
 <br><br>
@@ -63,7 +67,7 @@ Download installer <a href="https://developer.nvidia.com/cuda-10.0-download-arch
 <br>
 ![DownloadCUDAToolkit_sm](https://user-images.githubusercontent.com/7931919/129793652-02818cad-e510-4b40-9bf4-536121342d58.png)<br>
 <br>
-Install to "/Developer/NVIDIA/CUDA-10.0"
+It will be installed to "/Developer/NVIDIA/CUDA-10.0"
 <br><br>
 
 **Step 5: Install NVIDIA cuDNN 7.6.5<br>**
@@ -122,7 +126,10 @@ MACOSX_DEPLOYMENT_TARGET=10.9 CC=clang CXX=clang++ python setup.py install
 <br>
 it will take some time...
 <br><br>
-
+It will be installed to "/Users/<-USERNAME->/opt/anaconda3/envs/ptc/lib/python3.7/site-packages/torch"
+And "/Users/<-USERNAME->/opt/anaconda3/envs/ptc/lib/python3.7/site-packages/torch-1.10.0a0+git30214ae-py3.7.egg-info"
+(or similar)
+<br>
 After success build **reboot your Mac**<br>
 <br>
 **Step 8: Upgrade torchvision and torchsummary<br>**
@@ -162,7 +169,7 @@ __CUDA Device Total Memory [GB]: 2.147024896
 ```
 <br>
 
-By my test (finetunning Resnet18) this install CUDA provides about a 1.8X speedup over the CPU for Pytorch on Macbook Pro 2019 with ATI graphics.
+By my test (fine-tunning Resnet18) this install CUDA provides about a 1.8X speedup over the CPU for Pytorch on Macbook Pro 2019 with ATI graphics.
 <br><br>
 
 **Step 10: Some hack<br>**
