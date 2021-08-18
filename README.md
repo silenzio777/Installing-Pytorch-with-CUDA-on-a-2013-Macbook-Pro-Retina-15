@@ -169,10 +169,10 @@ __Number CUDA Devices: 1
 __CUDA Device Name: GeForce GT 750M
 __CUDA Device Total Memory [GB]: 2.147024896
 ```
+![CUDATest](https://user-images.githubusercontent.com/7931919/129861051-8cee6d45-e16a-44ac-accd-264617774871.png)
 <br>
-
 By my test (fine-tunning Resnet18) this install CUDA provides about a 1.8X speedup over the CPU for Pytorch on Macbook Pro 2019 with ATI graphics.
-<br><br>
+<br>Yes, in this case Macbook Pro 2013 with NVidia faster then Macbook Pro 2019 with ATI.<br>
 
 **Step 10: Some hack<br>**
 
