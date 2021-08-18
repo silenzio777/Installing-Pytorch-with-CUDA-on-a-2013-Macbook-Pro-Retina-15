@@ -92,6 +92,7 @@ Copy file "libcuda.dylib" from "/Developer/NVIDIA/CUDA-10.0/lib" to "/usr/local/
 And then make a alias (symlink) of "libcuda.dylib" as name "libcuda.so.1"<br>
 
 ```
+sudo cp /Developer/NVIDIA/CUDA-10.0/lib/libcuda.dylib /usr/local/cuda/lib
 cd /usr/local/cuda/lib/
 ln -s libcuda.dylib libcuda.so.1
 ```
