@@ -87,7 +87,8 @@ and<br>
 
 Make a alias (symlink) of "libcuda.dylib" as name "libcuda.so.1"<br>
 
-```cd /usr/local/cuda/lib/
+```
+cd /usr/local/cuda/lib/
 ln -s libcuda.dylib libcuda.so.1
 ```
 <br>
@@ -95,7 +96,8 @@ ln -s libcuda.dylib libcuda.so.1
 **Step 6: Install Conda<br>**
 Install <a href="https://www.anaconda.com/distribution/">Anaconda</a>. Create an environment named "ptc" that includes pip, activate it, and install libraries:
 
-```conda create --name ptc python=3.7
+```
+conda create --name ptc python=3.7
 conda activate ptc
 conda install numpy ninja pyyaml mkl mkl-include setuptools cmake cffi typing_extensions future six requests dataclasses intel-openmp
 conda install torchvision
@@ -105,13 +107,15 @@ conda install pkg-config libuv
 
 **Step 7: Build Pytorch<br>**
 Download Pytorch install:<br>
-```conda activate ptc
+```
+conda activate ptc
 git clone --recursive https://github.com/pytorch/pytorch
 ```
 <br>
 Finally you build:<br>
 
-```cd pytorch
+```
+cd pytorch
 export CMAKE_PREFIX_PATH=${CONDA_PREFIX:-"$(dirname $(which conda))/../"}
 MACOSX_DEPLOYMENT_TARGET=10.9 CC=clang CXX=clang++ python setup.py install
 ```
@@ -122,7 +126,8 @@ it will take some time...
 After success build **reboot your Mac**<br>
 <br>
 **Step 8: Upgrade torchvision and torchsummary<br>**
-```conda activate ptc
+```
+conda activate ptc
 pip install torchvision==0.10.0 --no-deps
 pip install --upgrade Pillow
 pip install pandas
@@ -130,7 +135,8 @@ pip install torchsummary==1.5.1 --no-deps
 ```
 **Step 9: Test Pytorch<br>**
 Test that pytorch with CUDA is working:<br>
-```conda activate ptc
+```
+conda activate ptc
 python
 >>import torch
 >>torch.cuda.is_available()
@@ -138,7 +144,8 @@ python
 You should see onу word "true"<br>
 <br>
 
-```python
+```
+python
 from torch import cuda
 print('__CUDNN VERSION:', torch.backends.cudnn.version())
 print('__Number CUDA Devices:', torch.cuda.device_count())
