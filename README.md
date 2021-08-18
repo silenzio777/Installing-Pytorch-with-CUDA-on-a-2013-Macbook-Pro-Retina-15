@@ -6,6 +6,7 @@ These instructions have been tested for:
 
 <blockquote>
 OS : MacOS High Sierra 10.13.6 (17G14042)<br>
+NVIDIA CUDA Toolkit 10.0<br>
 GPU Driver: NVIDIA Web Driver 387.10.10.10.4.140<br>
 GPU CUDA Driver Version: 418.105<br>
 Xcode Version: 10.1 (10B61)<br>
