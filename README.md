@@ -193,7 +193,7 @@ __CUDA Device Total Memory [GB]: 2.147024896
 <br>
 By my test (fine-tunning Resnet18) this install CUDA provides about a 1.8X speedup over the CPU for Pytorch on Macbook Pro 2019 with ATI graphics.
 Yes, in this case Macbook Pro 2013 with NVidia faster then Macbook Pro 2019 with ATI.<br>
-
+<br><br>
 **Step 10: Some hack<br>**
 
 You can easily save this installation just zipping two those dir:<br>
