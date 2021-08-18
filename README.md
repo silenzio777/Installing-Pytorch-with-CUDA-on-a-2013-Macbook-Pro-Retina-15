@@ -9,7 +9,7 @@ OS : MacOS High Sierra 10.13.6 (17G14042)<br>
 NVIDIA CUDA Toolkit 10.0<br>
 GPU CUDA Driver Version: 418.105<br>
 GPU Driver: NVIDIA Web Driver 387.10.10.10.4.140<br>
-Xcode Version: 10.1 (10B61)<br>
+Xcode Version: 9.4<br>
 Python 3.7.11<br>
 </blockquote>
 <br>
