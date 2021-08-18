@@ -87,57 +87,49 @@ and<br>
 
 Make a alias (symlink) of "libcuda.dylib" as name "libcuda.so.1"<br>
 
->cd /usr/local/cuda/lib/<br>
->ln -s libcuda.dylib libcuda.so.1<br>
+```cd /usr/local/cuda/lib/
+ln -s libcuda.dylib libcuda.so.1
+```
 <br>
 
 **Step 6: Install Conda<br>**
 Install <a href="https://www.anaconda.com/distribution/">Anaconda</a>. Create an environment named "ptc" that includes pip, activate it, and install libraries:
 
->conda create --name ptc python=3.7<br>
->conda activate ptc<br>
->conda install numpy ninja pyyaml mkl mkl-include setuptools cmake cffi typing_extensions future six requests dataclasses intel-openmp<br>
->conda install torchvision<br>
->conda install pkg-config libuv<br>
+```conda create --name ptc python=3.7
+conda activate ptc
+conda install numpy ninja pyyaml mkl mkl-include setuptools cmake cffi typing_extensions future six requests dataclasses intel-openmp
+conda install torchvision
+conda install pkg-config libuv
+```
 <br>
 
 **Step 7: Build Pytorch<br>**
 Download Pytorch install:<br>
->
->conda activate ptc
->git clone --recursive https://github.com/pytorch/pytorch
-<br><br>
-
+```conda activate ptc
+git clone --recursive https://github.com/pytorch/pytorch
+```
+<br>
 Finally you build:<br>
 
->
->cd pytorch
->export CMAKE_PREFIX_PATH=${CONDA_PREFIX:-"$(dirname $(which conda))/../"}
->MACOSX_DEPLOYMENT_TARGET=10.9 CC=clang CXX=clang++ python setup.py install
-<br><br>
-
+```cd pytorch
+export CMAKE_PREFIX_PATH=${CONDA_PREFIX:-"$(dirname $(which conda))/../"}
+MACOSX_DEPLOYMENT_TARGET=10.9 CC=clang CXX=clang++ python setup.py install
+```
+<br>
 it will take some time...
 <br><br>
 
 After success build **reboot your Mac**<br>
 <br>
 **Step 8: Upgrade torchvision and torchsummary<br>**
-
->
->conda activate ptc
->
->pip install torchvision==0.10.0 --no-deps
->
->pip install --upgrade Pillow
->
->pip install pandas
->
->pip install torchsummary==1.5.1 --no-deps
->
-
+```conda activate ptc
+pip install torchvision==0.10.0 --no-deps
+pip install --upgrade Pillow
+pip install pandas
+pip install torchsummary==1.5.1 --no-deps
+```
 **Step 9: Test Pytorch<br>**
 Test that pytorch with CUDA is working:<br>
-
 ```conda activate ptc
 python
 >>import torch
@@ -163,7 +155,7 @@ __CUDA Device Total Memory [GB]: 2.147024896
 ```
 <br>
 
-By my test (finetunning Resnet18) this install CUDA provides about a 1.8X speedup over the CPU for Pytorch the Macbook Pro 2019 with ATI graphics.
+By my test (finetunning Resnet18) this install CUDA provides about a 1.8X speedup over the CPU for Pytorch on Macbook Pro 2019 with ATI graphics.
 <br><br>
 
 **Step 10: Some hack<br>**
