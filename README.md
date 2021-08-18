@@ -124,16 +124,30 @@ cd pytorch
 export CMAKE_PREFIX_PATH=${CONDA_PREFIX:-"$(dirname $(which conda))/../"}
 MACOSX_DEPLOYMENT_TARGET=10.9 CC=clang CXX=clang++ python setup.py install
 ```
+
 <br>
 it will take some time...
 <br><br>
-It will be installed to "/Users/<-USERNAME->/opt/anaconda3/envs/ptc/lib/python3.7/site-packages/torch"
-And "/Users/<-USERNAME->/opt/anaconda3/envs/ptc/lib/python3.7/site-packages/torch-1.10.0a0+git30214ae-py3.7.egg-info"
+It will be installed to:
+
+```
+/Users/<-USERNAME->/opt/anaconda3/envs/ptc/lib/python3.7/site-packages/torch"
+```
+
+And:
+
+```
+/Users/<-USERNAME->/opt/anaconda3/envs/ptc/lib/python3.7/site-packages/torch-1.10.0a0+git30214ae-py3.7.egg-info
+```
+
 (or similar)
 <br>
-After success build **reboot your Mac**<br>
+
+After success build reboot your Mac<br>
 <br><br>
+
 **Step 8: Upgrade torchvision and torchsummary<br>**
+
 ```
 conda activate ptc
 pip install torchvision==0.10.0 --no-deps
@@ -141,15 +155,18 @@ pip install --upgrade Pillow
 pip install pandas
 pip install torchsummary==1.5.1 --no-deps
 ```
+
 <br><br>
 **Step 9: Test Pytorch<br>**
 Test that pytorch with CUDA is working:<br>
+
 ```
 conda activate ptc
 python
 >>import torch
 >>torch.cuda.is_available()
 ```
+
 You should see onу word "true"<br>
 <br>
 
