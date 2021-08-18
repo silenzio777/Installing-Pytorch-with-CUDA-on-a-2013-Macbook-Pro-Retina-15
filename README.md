@@ -73,7 +73,7 @@ It will be installed to "/Developer/NVIDIA/CUDA-10.0"
 <a href="https://developer.nvidia.com/login">Joint to NVIDIA Developer Program.</a><br>
 And download installer zip file - <a href="https://developer.nvidia.com/compute/machine-learning/cudnn/secure/7.6.5.32/Production/10.0_20191031/cudnn-10.0-osx-x64-v7.6.5.32.tgz">cudnn-10.0-osx-x64-v7.6.5.32.tgz</a> (654,8 MB)<br>
 <br>
-Then Unzip it to "/usr/local/cuda/lib"<br>
+Then Unzip it to "/usr/local/cuda/"<br>
 <br>
 There will be two directories with files:<br>
 
