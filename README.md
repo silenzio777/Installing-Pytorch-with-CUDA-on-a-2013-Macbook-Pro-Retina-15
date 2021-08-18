@@ -59,7 +59,6 @@ export PATH=/Developer/NVIDIA/CUDA-10.0/bin${PATH:+:${PATH}}
 export DYLD_LIBRARY_PATH=/usr/local/cuda/lib:$DYLD_LIBRARY_PATH
 ```
 <br><br>
-
 **Step 4: Download NVIDIA CUDA Toolkit 10.0 Archive<br>**
 
 Download installer <a href="https://developer.nvidia.com/cuda-10.0-download-archive?target_os=MacOSX&target_arch=x86_64&target_version=1013">NVIDIA CUDA Toolkit 10.0 </a>(1,8 GB)<br>
@@ -67,7 +66,8 @@ Download installer <a href="https://developer.nvidia.com/cuda-10.0-download-arch
 ![DownloadCUDAToolkit_sm](https://user-images.githubusercontent.com/7931919/129793652-02818cad-e510-4b40-9bf4-536121342d58.png)<br>
 <br>
 It will be installed to "/Developer/NVIDIA/CUDA-10.0"
-<br>and **reboot your Mac**<br>
+<br><br>
+**reboot your Mac**<br>
 <br>
 **Step 5: Install NVIDIA cuDNN 7.6.5<br>**
 <a href="https://developer.nvidia.com/login">Joint to NVIDIA Developer Program.</a><br>
