@@ -14,11 +14,13 @@ Python 3.7.11<br>
 </blockquote>
 <br>
 
-**Step 1: Downgrade to High Sierra 10.13.6 (17G14042)<br>**
+<a name="S1"></a>
+### Step 1: Downgrade to High Sierra 10.13.6 (17G14042)
 Check that you are running Mac OS X High Sierra (10.13.6). If you have an older version, upgrade. If you have a newer version you will need to downgrade; Apple banished CUDA with Mojave and later versions of the OS. Downgrading OS X requires <a href="https://www.macworld.co.uk/how-to/mac-software/downgrade-macos-mojave-3581872/">creating a bootable USB memory stick installer and erasing your laptop's hard disk</a>
 <br><br>
-<br>
-**Step 2: Downgrade Xcode<br>**
+
+<a name="S2"></a>
+### Step 2: Downgrade Xcode
 Make developer acc at first, then go to https://developer.apple.com/download/all/ and download Xcode version 9.4. 
 <a href="https://download.developer.apple.com/Developer_Tools/Command_Line_Tools_macOS_10.13_for_Xcode_9.4/Command_Line_Tools_macOS_10.13_for_Xcode_9.4.dmg">( direct link )</a>
 <br><br>
@@ -43,9 +45,10 @@ Thread model: posix<br>
 InstalledDir: /Library/Developer/CommandLineTools/usr/bin
 </blockquote>
 Don't think about 9.4 != 9.1. It's OK 8;
-<br><br><br>
+<br><br>
 
-**Step 3: Install NVIDIA Drivers**<br>
+<a name="S3"></a>
+### Step 3: Install NVIDIA Drivers
 Install the <a href="https://images.nvidia.com/mac/pkg/387/WebDriver-387.10.10.10.40.140.pkg">NVIDIA Quadro and Geforce OS X Driver 387.10.10.10.40.140</a>
 
 Add to your .profile
@@ -60,7 +63,8 @@ export PATH=/Developer/NVIDIA/CUDA-10.0/bin${PATH:+:${PATH}}
 export DYLD_LIBRARY_PATH=/usr/local/cuda/lib:$DYLD_LIBRARY_PATH
 ```
 <br><br>
-**Step 4: Download NVIDIA CUDA Toolkit 10.0 Archive<br>**
+<a name="S4"></a>
+### Step 4: Download NVIDIA CUDA Toolkit 10.0 Archive
 
 Download installer <a href="https://developer.nvidia.com/cuda-10.0-download-archive?target_os=MacOSX&target_arch=x86_64&target_version=1013">NVIDIA CUDA Toolkit 10.0 </a>(1,8 GB)<br>
 <br>
@@ -70,7 +74,8 @@ It will be installed to "/Developer/NVIDIA/CUDA-10.0"
 <br><br>
 **reboot your Mac**<br>
 <br>
-**Step 5: Install NVIDIA cuDNN 7.6.5<br>**
+<a name="S5"></a>
+### Step 5: Install NVIDIA cuDNN 7.6.5
 <a href="https://developer.nvidia.com/login">Joint to NVIDIA Developer Program.</a><br>
 And download installer zip file - <a href="https://developer.nvidia.com/compute/machine-learning/cudnn/secure/7.6.5.32/Production/10.0_20191031/cudnn-10.0-osx-x64-v7.6.5.32.tgz">cudnn-10.0-osx-x64-v7.6.5.32.tgz</a> (654,8 MB)<br>
 <br>
@@ -99,7 +104,8 @@ ln -s libcuda.dylib libcuda.so.1
 ```
 <br><br>
 
-**Step 6: Install Conda<br>**
+<a name="S6"></a>
+### Step 6: Install Conda
 Install <a href="https://www.anaconda.com/distribution/">Anaconda</a>. Create an environment named "ptc" that includes pip, activate it, and install libraries:
 
 ```
@@ -111,7 +117,8 @@ conda install pkg-config libuv
 ```
 <br><br>
 
-**Step 7: Build Pytorch<br>**
+<a name="S7"></a>
+### Step 7: Build Pytorch
 Download Pytorch install:<br>
 ```
 conda activate ptc
@@ -147,7 +154,8 @@ And:
 After success build reboot your Mac<br>
 <br><br>
 
-**Step 8: Upgrade torchvision and torchsummary<br>**
+<a name="S8"></a>
+### Step 8: Upgrade torchvision and torchsummary
 
 ```
 conda activate ptc
@@ -160,7 +168,8 @@ pip install torchsummary==1.5.1 --no-deps
 Use "--no-deps" option because if you just run "pip install torchvision" it will be replace you Torch installation by CPU version of Torch.
 
 <br><br>
-**Step 9: Test Pytorch<br>**
+<a name="S9"></a>
+### Step 9: Test Pytorch
 Test that pytorch with CUDA is working:<br>
 
 ```
@@ -194,7 +203,8 @@ __CUDA Device Total Memory [GB]: 2.147024896
 By my test (fine-tunning Resnet18) this install CUDA provides about a 1.8X speedup over the CPU for Pytorch on Macbook Pro 2019 with ATI graphics.
 Yes, in this case Macbook Pro 2013 with NVidia faster then Macbook Pro 2019 with ATI.<br>
 <br><br>
-**Step 10: Some hack<br>**
+<a name="S10"></a>
+### Step 10: Some hack
 
 You can easily save this installation just zipping two those dir:<br>
 
