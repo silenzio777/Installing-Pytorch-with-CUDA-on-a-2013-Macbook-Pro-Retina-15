@@ -182,8 +182,7 @@ python
 You should see onу word "true"<br>
 <br>
 
-```
-python
+```python
 from torch import cuda
 print('__CUDNN VERSION:', torch.backends.cudnn.version())
 print('__Number CUDA Devices:', torch.cuda.device_count())
