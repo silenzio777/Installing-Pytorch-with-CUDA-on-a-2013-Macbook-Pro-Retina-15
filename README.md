@@ -162,6 +162,7 @@ __CUDA Device Name: GeForce GT 750M
 __CUDA Device Total Memory [GB]: 2.147024896
 ```
 <br>
+
 By my test (finetunning Resnet18) this install CUDA provides about a 1.8X speedup over the CPU for Pytorch the Macbook Pro 2019 with ATI graphics.
 <br><br>
 
@@ -169,31 +170,28 @@ By my test (finetunning Resnet18) this install CUDA provides about a 1.8X speedu
 
 You can easily save this installation just zipping two those dir:<br>
 
-<blockquote>
+```
 /Users/<-USERNAME->/opt/anaconda3/envs/ptc/lib/python3.7/site-packages/torch
-</blockquote>
+```
 and
 <br>
-<blockquote>
+```
 /Users/<-USERNAME->/opt/anaconda3/envs/ptc/lib/python3.7/site-packages/torch-1.10.0a0+git30214ae-py3.7.egg-info
-</blockquote>
+```
 (or similar)<br>
 
 And unzip it, and replace, if some pip or conda installer kill your installation to cpu version of Pytorch.<br>
-  
+
 ____________________________________________
 Option: switch Xcode back to the version 10.0.0:<br>
+  
 ```
   sudo xcode-select --switch /Applications/Xcode.app/Contents/Developer
-  ```
+```
+
 <br>
-  
+Good luck!<br>
+2021.08.17<br>
+silenzio<br>
 <br>
->Good look!<br>
->2021.08.17<br>
->silenzio
-<br><br>
-
-
-
 
