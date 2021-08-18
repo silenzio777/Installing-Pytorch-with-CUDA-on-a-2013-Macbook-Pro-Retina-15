@@ -16,7 +16,7 @@ Python 3.7.11<br>
 **Step 1: Downgrade to High Sierra 10.13.6 (17G14042)<br>**
 Check that you are running Mac OS X High Sierra (10.13.6). If you have an older version, upgrade. If you have a newer version you will need to downgrade; Apple banished CUDA with Mojave and later versions of the OS. Downgrading OS X requires <a href="https://www.macworld.co.uk/how-to/mac-software/downgrade-macos-mojave-3581872/">creating a bootable USB memory stick installer and erasing your laptop's hard disk</a>
 <br><br>
-
+<br>
 **Step 2: Downgrade Xcode<br>**
 Make developer acc at first, then go to https://developer.apple.com/download/all/ and download Xcode version 9.4. 
 <a href="https://download.developer.apple.com/Developer_Tools/Command_Line_Tools_macOS_10.13_for_Xcode_9.4/Command_Line_Tools_macOS_10.13_for_Xcode_9.4.dmg">( direct link )</a>
@@ -24,26 +24,27 @@ Make developer acc at first, then go to https://developer.apple.com/download/all
 Install Xcode version 9.4.<br>
 <br>
 Then switch to Xcode version 9.4:
->
->sudo xcode-select --switch /Library/Developer/CommandLineTools
+```
+sudo xcode-select --switch /Library/Developer/CommandLineTools
+```
 <br>
-You can check current version of Xcode by:<br>
+You can check current version of Xcode by:
 
->
->clang --version
+```
+clang --version
+```
 <br>
 Should be:
-
->
->Apple LLVM version 9.1.0 (clang-902.0.39.2)<br>
->Target: x86_64-apple-darwin17.7.0<br>
->Thread model: posix<br>
->InstalledDir: /Library/Developer/CommandLineTools/usr/bin
->
+<blockquote>
+Apple LLVM version 9.1.0 (clang-902.0.39.2)<br>
+Target: x86_64-apple-darwin17.7.0<br>
+Thread model: posix<br>
+InstalledDir: /Library/Developer/CommandLineTools/usr/bin
+</blockquote>
 Don't think about 9.4 != 9.1. It's OK 8;
-<br><br>
+<br><br><br>
 
-**Step 3: Install NVIDIA Drivers**
+**Step 3: Install NVIDIA Drivers**<br>
 Install the <a href="https://images.nvidia.com/mac/pkg/387/WebDriver-387.10.10.10.40.140.pkg">NVIDIA Quadro and Geforce OS X Driver 387.10.10.10.40.140</a>
 
 Add to your .profile
@@ -60,7 +61,7 @@ export DYLD_LIBRARY_PATH=/usr/local/cuda/lib:$DYLD_LIBRARY_PATH
 
 and **reboot your Mac**
 <br><br>
-
+<br>
 **Step 4: Download NVIDIA CUDA Toolkit 10.0 Archive<br>**
 
 Download installer <a href="https://developer.nvidia.com/cuda-10.0-download-archive?target_os=MacOSX&target_arch=x86_64&target_version=1013">NVIDIA CUDA Toolkit 10.0 </a>(1,8 GB)<br>
@@ -69,7 +70,7 @@ Download installer <a href="https://developer.nvidia.com/cuda-10.0-download-arch
 <br>
 It will be installed to "/Developer/NVIDIA/CUDA-10.0"
 <br><br>
-
+<br>
 **Step 5: Install NVIDIA cuDNN 7.6.5<br>**
 <a href="https://developer.nvidia.com/login">Joint to NVIDIA Developer Program.</a><br>
 And download installer zip file - <a href="https://developer.nvidia.com/compute/machine-learning/cudnn/secure/7.6.5.32/Production/10.0_20191031/cudnn-10.0-osx-x64-v7.6.5.32.tgz">cudnn-10.0-osx-x64-v7.6.5.32.tgz</a> (654,8 MB)<br>
@@ -95,7 +96,7 @@ Make a alias (symlink) of "libcuda.dylib" as name "libcuda.so.1"<br>
 cd /usr/local/cuda/lib/
 ln -s libcuda.dylib libcuda.so.1
 ```
-<br>
+<br><br>
 
 **Step 6: Install Conda<br>**
 Install <a href="https://www.anaconda.com/distribution/">Anaconda</a>. Create an environment named "ptc" that includes pip, activate it, and install libraries:
@@ -107,7 +108,7 @@ conda install numpy ninja pyyaml mkl mkl-include setuptools cmake cffi typing_ex
 conda install torchvision
 conda install pkg-config libuv
 ```
-<br>
+<br><br>
 
 **Step 7: Build Pytorch<br>**
 Download Pytorch install:<br>
@@ -131,7 +132,7 @@ And "/Users/<-USERNAME->/opt/anaconda3/envs/ptc/lib/python3.7/site-packages/torc
 (or similar)
 <br>
 After success build **reboot your Mac**<br>
-<br>
+<br><br>
 **Step 8: Upgrade torchvision and torchsummary<br>**
 ```
 conda activate ptc
@@ -140,6 +141,7 @@ pip install --upgrade Pillow
 pip install pandas
 pip install torchsummary==1.5.1 --no-deps
 ```
+<br><br>
 **Step 9: Test Pytorch<br>**
 Test that pytorch with CUDA is working:<br>
 ```
