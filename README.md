@@ -127,7 +127,7 @@ MACOSX_DEPLOYMENT_TARGET=10.9 CC=clang CXX=clang++ python setup.py install
 ```
 
 <br>
-it will take some time...
+it will take some time... about hour 8).
 <br><br>
 It will be installed to:
 
@@ -156,6 +156,8 @@ pip install --upgrade Pillow
 pip install pandas
 pip install torchsummary==1.5.1 --no-deps
 ```
+
+Use "--no-deps" option because if you just run "pip install torchvision" it will be replace you Torch installation by CPU version of Torch.
 
 <br><br>
 **Step 9: Test Pytorch<br>**
