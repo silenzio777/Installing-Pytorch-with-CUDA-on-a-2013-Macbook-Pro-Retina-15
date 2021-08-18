@@ -138,21 +138,13 @@ After success build **reboot your Mac**<br>
 **Step 9: Test Pytorch<br>**
 Test that pytorch with CUDA is working:<br>
 
->conda activate ptc
->
->python
->
->import torch
->
->
->torch.cuda.is_available()
-
+```conda activate ptc
+python
+>>import torch
+>>torch.cuda.is_available()
+```
 You should see onу word "true"<br>
 <br>
->
->torch.cuda.device_count()
->
-You should see onу dig "1"<br>
 
 ```python
 from torch import cuda
@@ -161,22 +153,19 @@ print('__Number CUDA Devices:', torch.cuda.device_count())
 print('__CUDA Device Name:',torch.cuda.get_device_name(0))
 print('__CUDA Device Total Memory [GB]:',torch.cuda.get_device_properties(0).total_memory/1e9)
 ```
->
+
 You should see:<br>
->
->__CUDNN VERSION: 7605
->
->__Number CUDA Devices: 1
->
->__CUDA Device Name: GeForce GT 750M
->
->__CUDA Device Total Memory [GB]: 2.147024896
->
->
->
+```
+__CUDNN VERSION: 7605
+__Number CUDA Devices: 1
+__CUDA Device Name: GeForce GT 750M
+__CUDA Device Total Memory [GB]: 2.147024896
+```
 <br>
-By my test CUDA provides about a 1.8X speedup over the cpu for Pytorch.
+By my test (finetunning Resnet18) this install CUDA provides about a 1.8X speedup over the CPU for Pytorch the Macbook Pro 2019 with ATI graphics.
 <br><br>
+
+**Step 10: Some hack<br>**
 
 You can easily save this installation just zipping two those dir:<br>
 
@@ -194,7 +183,9 @@ And unzip it, and replace, if some pip or conda installer kill your installation
   
 ____________________________________________
 Option: switch Xcode back to the version 10.0.0:<br>
->sudo xcode-select --switch /Applications/Xcode.app/Contents/Developer
+```
+  sudo xcode-select --switch /Applications/Xcode.app/Contents/Developer
+  ```
 <br>
   
 <br>
