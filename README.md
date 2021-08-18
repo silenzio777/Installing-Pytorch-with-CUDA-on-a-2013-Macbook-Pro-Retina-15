@@ -58,10 +58,8 @@ this two lines:<br>
 export PATH=/Developer/NVIDIA/CUDA-10.0/bin${PATH:+:${PATH}}
 export DYLD_LIBRARY_PATH=/usr/local/cuda/lib:$DYLD_LIBRARY_PATH
 ```
-
-
 <br><br>
-<br>
+
 **Step 4: Download NVIDIA CUDA Toolkit 10.0 Archive<br>**
 
 Download installer <a href="https://developer.nvidia.com/cuda-10.0-download-archive?target_os=MacOSX&target_arch=x86_64&target_version=1013">NVIDIA CUDA Toolkit 10.0 </a>(1,8 GB)<br>
