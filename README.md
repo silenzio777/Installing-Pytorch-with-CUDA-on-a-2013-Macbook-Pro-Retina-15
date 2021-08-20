@@ -5,7 +5,7 @@ ________________________________________
 These instructions have been tested for:
 
 <blockquote>
-OS : MacOS High Sierra 10.13.6 (17G14042)<br>
+OS: macOS High Sierra 10.13.6 (17G14042)<br>
 NVIDIA CUDA Toolkit 10.0<br>
 GPU CUDA Driver Version: 418.105<br>
 GPU Driver: NVIDIA Web Driver 387.10.10.10.4.140<br>
